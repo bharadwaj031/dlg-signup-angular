@@ -16,3 +16,9 @@ This Signup page is meant to connect basic implementation of Angular 17 with Dyn
 
 ## Node Version Used for this project
 Node v20.11.0 (npm v10.2.4)
+
+## Unit Test Coverage Results
+Statements   : 97.75% ( 87/89 )
+Branches     : 92.85% ( 13/14 )
+Functions    : 96% ( 24/25 )
+Lines        : 97.53% ( 79/81 )
