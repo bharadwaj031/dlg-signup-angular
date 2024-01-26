@@ -7,6 +7,7 @@ This Signup page is meant to connect basic implementation of Angular 17 with Dyn
 1. npm i
 2. ng serve
 3. Open to browswer with `http://localhost:4200`
+4. Uses mock API from https://run.mocky.io/v3/93545520-0b7f-4dc2-ae19-02582d1ad2a8 with POST/{"firstName":"asdf","lastName":"asdf","email":"s@b.com"} request
 
 ## Running unit tests and Coverage
 
