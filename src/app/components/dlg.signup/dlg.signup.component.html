@@ -1,0 +1,9 @@
+<!-- Below code can be used with CommonModule instead of @if
+    <div class="toast" *ngIf="(respData | async)?.status === 'success'">Successfully Created</div>
+-->
+
+@if((customerCreateResp$ | async)?.status === 'success') {
+    <div class="toast">Successfully Created</div>
+}
+
+<dlg-dynamic-form [form]="signupFormConfig" (submit)="onSubmit($event)" [loading]="loading$"></dlg-dynamic-form>

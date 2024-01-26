@@ -1,0 +1,51 @@
+@mixin generate-gradient($deg, $gradientColors...) {
+    background: linear-gradient($deg, $gradientColors)
+}
+
+@mixin responsive($media) {
+    @if $media ==tablet-desktop {
+        @media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+            .box {
+                width: 70vw;
+                height: 55vh;
+
+                &::before {
+                    width: 70vw;
+                    height: 55vh;
+                    top: -50%;
+                    left: -50%;
+                }
+
+                &::after {
+                    width: 70vw;
+                    height: 55vh;
+                    top: -50%;
+                    left: -50%;
+                }
+            }
+        }
+    }
+
+    @else if $media ==phone {
+        @media screen and (min-device-width: 320px) and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+            .box {
+                width: 100vw;
+                height: 90vh;
+
+                &::before {
+                    width: 100vw;
+                    height: 90vh;
+                    top: -50%;
+                    left: -50%;
+                }
+
+                &::after {
+                    width: 100vw;
+                    height: 90vh;
+                    top: -50%;
+                    left: -50%;
+                }
+            }
+        }
+    }
+}

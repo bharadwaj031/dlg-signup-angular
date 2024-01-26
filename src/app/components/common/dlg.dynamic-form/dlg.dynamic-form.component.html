@@ -1,0 +1,58 @@
+<div class="box">
+    <span class="borderline"></span>
+    <form [formGroup]="dynamicForm" (keydown.enter)="onSubmit()">
+        <h2>{{form.title}}</h2>
+        @for(control of form.formControls; track control){
+        @if(control && ['text', 'email', 'password', 'number', 'date'].includes(control.type)){
+        <div class="inputBox">
+            <input [attr.aria-label]="control.label" formControlName="{{control?.name}}" [type]="control?.type" [value]="control?.value" />
+            <span [id]="control.label" class="{{
+                                getErrorMessage(control) ? 'error' : 'valid'
+                            }}">
+                {{control.label}}
+            </span>
+            <i class="{{
+                            getErrorMessage(control)? 'error' : 'valid'
+                        }}"></i>
+            <small>{{getErrorMessage(control) ? getErrorMessage(control) : ''}}</small>
+        </div>
+        }
+        @if(control && control.type === 'select'){
+        <div class="inputBox">
+            <select [attr.aria-label]="control.label" formControlName="{{control?.name}}" [value]="control?.value">
+                @for(option of control?.selectOptions;track option){
+                <option [attr.aria-label]="option?.value" [value]="option?.value">{{option?.value}}</option>
+                }
+            </select>
+            <span [attr.aria-label]="control.label" class="{{
+                            getErrorMessage(control) ? 'error' : 'valid'
+                        }}">
+                {{control.label}}
+            </span>
+            <small>{{getErrorMessage(control) ? getErrorMessage(control) : ''}}</small>
+        </div>
+        }
+        @if(control && control.type === 'radio'){
+            <div class="inputBox">
+            @for(radioOption of control?.radioOptions; track radioOption){
+                <input [name]="control?.name" formControlName="{{control?.name}}" [type]="control?.type" [value]="radioOption" />
+                <span class="{{
+                    getErrorMessage(control) ? 'error' : 'valid'
+                }}">
+                    {{radioOption}}
+                </span>
+            }
+            <small>{{getErrorMessage(control) ? getErrorMessage(control) : ''}}</small>
+        </div>
+        }
+        }
+        <div class="button-container">
+            <button [attr.aria-label]="form.saveButton" type="button" [disabled]="!dynamicForm.valid" (click)="onSubmit()">
+                {{form.saveButton}}
+            </button>
+            <mat-progress-spinner *ngIf="(loading | async)?.isLoading" class="example-margin" [color]="color"
+                [mode]="mode" diameter="30">
+            </mat-progress-spinner>
+        </div>
+    </form>
+</div>
