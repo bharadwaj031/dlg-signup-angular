@@ -15,7 +15,7 @@ This Signup page is meant to connect basic implementation of Angular 17 with Dyn
 ## Running unit tests and Coverage
 
 1. Run `ng test` to execute the unit tests
-2. Run `g test --n0-watch --code-coverage` to generate code coverage
+2. Run `ng test --no-watch --code-coverage` to generate code coverage
 3. To access coverage report - Go to `<PROJECT_DIR>/coverage/index.html`
 
 ## Node Version Used for this project
